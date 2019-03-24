@@ -42,7 +42,7 @@ ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC�
 	标准SD卡接口：Micro SD卡接口  
 	网络：10/100以太网接口，Wi-Fi，蓝牙  
 具体接口分布如图：  
-![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/1_2.jpg)
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/1_2.jpg)  
 **b)	软件开发环境**  
 	操作系统：支持Ubuntu Snappy Core，Raspbian，OpenELEC和RISC OS，Windows 10 ARM等多个操作系统。我们使用的是Raspberry Pi 3  
 **c)	编程环境**  
