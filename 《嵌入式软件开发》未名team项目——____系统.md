@@ -30,7 +30,7 @@
 树莓派是一款基于ARM的微型电脑主板，以SD/MicroSD卡位内存硬盘，卡片主板周围有USB接口和以太网接口，可连接键盘、鼠标和网线，同时拥有视频模拟信号的电视输出接口和HDMI高清视频输出接口。
 ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC微处理器。全称为Acorn RISC Machine。ARM处理器本身是32位设计，但也配备16位指令集，一般来讲比等价32位代码节省达35%，却能保留32位系统的所有优势。
 树莓派的结构框图如下：  
-![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/1_1.png)
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/1_1.png)  
 普通的计算机主板都是依靠硬盘来存储数据，但是Raspberry Pi 来说使用SD 卡作为硬盘，也可以外接USB 硬盘。SD卡是基于半导体快闪记忆器的新一代记忆设备，它体积小、数据传输速度快、可热插拔，广泛应用于便携式装置。
 	具体的硬件参数如下：  
 	处理器：1.2GHz 四核 64位ARM Cortex-A53处理器  
