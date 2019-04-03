@@ -1,2 +1,2 @@
 # RaspberryProject
-This is a project about *** by Raspberry Pi 3
+This is a project about A conversational smart home system based on Raspberry Pi.
