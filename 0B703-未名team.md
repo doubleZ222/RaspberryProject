@@ -161,10 +161,17 @@ mkdir mnt/fat32
 mkdir mnt/ext4
 
 [2]然后再拷贝系统启动的dtb文
+
 sudo cp arch/arm/boot/dts/broadcom/bcm2710-rpi-3-b.dtb mnt/fat32/
+
 sudo cp arch/arm/boot/dts/broadcom/bcm2837-rpi-3-b.dtb mnt/fat32/overlays/
+
 sudo cp arch/arm/boot/dts/overlays/README mnt/fat32/overlays/
+
 sudo cp ./arch/arm64/boot/Image /mnt/boot/kernel8.img
+
 [3]卸载分区
+
 sudo umount mnt/fat32
+
 sudo umount mnt/ext4
