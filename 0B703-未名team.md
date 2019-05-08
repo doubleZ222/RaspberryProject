@@ -77,6 +77,50 @@ ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC�
 **b)	硬件条件**  
    树莓派、arduino 、温湿度传感器、wifi模块、
 
+## 第三章	构建目标系统 ##
 
+###  **1. 配置编译raspberry内核需要的各种环境** ###
+
+[1] 更新系统源：sudo apt-get update
+
+[2] 安装一些必要的工具库：sudo apt-get install -y bc build-essential gcc-aarch64-linux-gnu git unzip
+
+[3] 安装配置系统内核包：sudo apt-get install kernel-package 
+
+[4] 安装配置内核menuconfig的辅助工具：sudo apt-get install libncurses5-dev
+
+###  **2. 下载raspberry Linux内核源代码** ###
+
+[1] 获取源代码：git clone --depth=1 -b rpi-4.8.y https://github.com/raspberrypi/linux.git
+
+
+###  **3. 配置新内核功能** ###
+
+ [1]不自己配置内核，将路径切到下载的linux源码路径下生成这个.config内核配置文件，执行命令：make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcmrpi3_defconfig
+ [2] 自己配置内核：同上执行命令：make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig 
+ 
+ ###  **4. 构建新内核** ###
+
+完成内核配置后便开始编译，执行命令： make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 其中 j8 代表用多少个CPU核来进行编译。
+ 
+ ###  **5. 将新内核安装到镜像文件系统中** ###
+[1]挂载img镜像文件
+sudo fdisk -l 2019-04-08-raspbian-stretch-lite.img
+
+sudo mount -o loop,offset=50331648 2019-04-08-raspbian-stretch-lite.img /mnt
+sudo mount -o loop,offset=4194304,sizelimit=44979712 2019-04-08-raspbian-stretch-lite.img /mnt/boot
+
+[2]替换原来的内核
+
+在编译生成的目录下把刚刚生成的内核文件Image拷贝到/mnt/boot/下 sudo cp ./arch/arm64/boot/Image /mnt/boot/kernel8.img
+
+然后再拷贝系统启动的dtb文
+sudo cp ./arch/arm64/boot/dts/broadcom/bcm2710-rpi-3-b.dtb /mnt/boot/
+sudo cp ./arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b.dtb /mnt/boot/
+
+[3]安装内核模块并配置内核
+sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/mnt modules_install
+
+[4]配置新的镜像：sudo echo kernel=kernel8.img >> /mnt/boot/config.txt
 
 
