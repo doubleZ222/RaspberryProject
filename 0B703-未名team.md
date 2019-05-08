@@ -118,7 +118,6 @@ Loadable module support即引导模块支持，该选项包括加载模块、卸
 Networking support即网络支持，该选项配置的是网络协议。如果要开发嵌入式系统能像PC一样使用各类网络协议，则可以使用默认选项，其中，最常用的TCP/IP networking选项当然要选择。
 
 
-
 **Device Drivers **
 
 Device Drivers即设备驱动，该选项包括内核所支持的各类硬件设备的配置信息
