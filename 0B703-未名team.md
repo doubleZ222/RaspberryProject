@@ -103,6 +103,7 @@ ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC�
 **Loadable module support**
 
 Loadable module support即引导模块支持，该选项包括加载模块、卸载模块、模块校验、自动加载模块等引导模块配置相关子选项
+
 [1] Enable loadable module support 
 
 打开可加载模块支持，如果打开它则必须通过make modules_install把内核模块安装在/lib/modules/中。模块是一小段代码，编译后可在系统内核运行时动态地加入内核，从而为内核 加一些特性或是对某种硬件进行支持。一般一些不常用到的驱动或特性可以编译为模块以减少内核的体积。在运行时可以使用modprobe命令来加载它到内核中去。一些特性是否编译为模块的原则有不常使用的，或是在系统启动时不需要的驱动可以将其编译为模块，如果是一些在系统启动时就要用到的驱动，比如说文件系统，系统总线的支持就不要编为模块，否则无法启动系统。在启动时不用到的功能编成模块是最有效的方式。
@@ -115,6 +116,8 @@ Loadable module support即引导模块支持，该选项包括加载模块、卸
 [3]Networking support 
 
 Networking support即网络支持，该选项配置的是网络协议。如果要开发嵌入式系统能像PC一样使用各类网络协议，则可以使用默认选项，其中，最常用的TCP/IP networking选项当然要选择。
+
+
 
 **Device Drivers **
 
