@@ -97,9 +97,11 @@ ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC�
 ###  **3. 配置新内核功能** ###
 
  [1]不自己配置内核，将路径切到下载的linux源码路径下生成这个.config内核配置文件，执行命令：make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcmrpi3_defconfig
+ 
  [2] 自己配置内核：同上执行命令：make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig 
  
  ###  **4. 内核裁剪** ###
+ 
 **Loadable module support**
 
 Loadable module support即引导模块支持，该选项包括加载模块、卸载模块、模块校验、自动加载模块等引导模块配置相关子选项
@@ -139,10 +141,13 @@ I2C是Philips极力推动的微控制应用中使用的低速串行总线协议
 完成内核配置后便开始编译，执行命令： make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 其中 j8 代表用多少个CPU核来进行编译。
  
  ###  **6. 将新内核安装到镜像文件系统中** ###
+ 
 [1]挂载img镜像文件
+
 sudo fdisk -l 2019-04-08-raspbian-stretch-lite.img
 
 sudo mount -o loop,offset=50331648 2019-04-08-raspbian-stretch-lite.img /mnt
+
 sudo mount -o loop,offset=4194304,sizelimit=44979712 2019-04-08-raspbian-stretch-lite.img /mnt/boot
 
 [2]替换原来的内核
@@ -150,17 +155,23 @@ sudo mount -o loop,offset=4194304,sizelimit=44979712 2019-04-08-raspbian-stretch
 在编译生成的目录下把刚刚生成的内核文件Image拷贝到/mnt/boot/下 sudo cp ./arch/arm64/boot/Image /mnt/boot/kernel8.img
 
 [3]安装内核模块并配置内核
+
 sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 modules_install
 
 [4]配置新的镜像：sudo echo kernel=kernel8.img >> /mnt/boot/config.txt
 
  ###  **7. 烧写到SD卡** ###
+ 
+[1]使用lsblk命令查看SD卡分区name，我的SD卡在/dev/sdb4
 
-[1]挂载SD卡分区：sudo mount /dev/sdb4 /mnt
+
+[2]挂载SD卡分区：sudo mount /dev/sdb4 /mnt
+
 mkdir mnt/fat32
+
 mkdir mnt/ext4
 
-[2]然后再拷贝系统启动的dtb文
+[3]然后再拷贝系统启动的dtb文
 
 sudo cp arch/arm/boot/dts/broadcom/bcm2710-rpi-3-b.dtb mnt/fat32/
 
@@ -168,9 +179,9 @@ sudo cp arch/arm/boot/dts/broadcom/bcm2837-rpi-3-b.dtb mnt/fat32/overlays/
 
 sudo cp arch/arm/boot/dts/overlays/README mnt/fat32/overlays/
 
-sudo cp ./arch/arm64/boot/Image /mnt/boot/kernel8.img
+sudo cp ./arch/arm64/boot/Image /mnt/fat32/kernel8.img
 
-[3]卸载分区
+[4]卸载分区
 
 sudo umount mnt/fat32
 
