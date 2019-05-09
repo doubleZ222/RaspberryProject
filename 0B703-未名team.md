@@ -102,7 +102,7 @@ ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC�
  
  ###  **4. 内核裁剪** ###
  
-**Loadable module support**
+ **a)	Loadable module support**  
 
 Loadable module support即引导模块支持，该选项包括加载模块、卸载模块、模块校验、自动加载模块等引导模块配置相关子选项
 
@@ -115,12 +115,32 @@ Loadable module support即引导模块支持，该选项包括加载模块、卸
 允许卸载已经加载的模块。如果选择N，将不能卸载任何模块（有些模块一旦加载就不能卸载，不管是否选择了这个选项）。
 其中，Forced module unloading子选项允许强制卸载正在使用中的模块，即使内核认为这不安全，内核也将会立即移除模块，而不管是否有人在使用它（用rmmod -f命令）。
 
-[3]Networking support 
 
-Networking support即网络支持，该选项配置的是网络协议。如果要开发嵌入式系统能像PC一样使用各类网络协议，则可以使用默认选项，其中，最常用的TCP/IP networking选项当然要选择。
+ **b)	 General setup**  
+ 
+这里是对最普通的一些属性进行设置。这部分内容非常多，一般使用缺省设置就可以了。
 
+Networking support：网络支持。必须，没有网卡也建议你选上。
 
-**Device Drivers **
+PCI support：PCI支持。如果使用了PCI的卡，当然必选。
+
+PCI access mode：PCI存取模式。可供选择的有BIOS、Direct和Any，选Any吧。
+
+Support for hot-pluggabel devices：热插拔设备支持。支持的不是太好，可不选。
+
+PCMCIA/CardBus support：PCMCIA/CardBus支持。有PCMCIA就必选了。
+
+System V IPC
+
+BSD Process Accounting
+
+Sysctl support：以上三项是有关进程处理/IPC调用的，主要就是System V和BSD两种风格。如果你不是使用BSD，就按照缺省吧。
+
+Power Management support：电源管理支持。
+
+Advanced Power Management BIOS support：高级电源管理BIOS支持。
+
+ **c)	Device Drivers**  
 
 Device Drivers即设备驱动，该选项包括内核所支持的各类硬件设备的配置信息
 
@@ -135,6 +155,19 @@ I2C是Philips极力推动的微控制应用中使用的低速串行总线协议
 [3]I2C support
 
 声卡驱动支持
+
+
+ **c)	File systems**  
+
+文件系统,在缺省选项的基础上进行修改。介绍以下几项：
+
+Quota support：Quota可以限制每个用户可以使用的硬盘空间的上限，在多用户共同使用一台主机的情况中十分有效。
+
+DOS FAT fs support：DOS FAT文件格式的支持，可以支持FAT16、FAT32。
+
+ISO 9660 CD-ROM file system support：光盘使用的就是ISO 9660的文件格式。
+
+NTFS file system support：ntfs是NT使用的文件格式。
  
  ###  **5. 构建新内核** ###
 
