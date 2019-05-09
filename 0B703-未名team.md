@@ -154,7 +154,15 @@ sudo mount -o loop,offset=4194304,sizelimit=44979712 2019-04-08-raspbian-stretch
 
 在编译生成的目录下把刚刚生成的内核文件Image拷贝到/mnt/boot/下 sudo cp ./arch/arm64/boot/Image /mnt/boot/kernel8.img
 
-[3]安装内核模块并配置内核
+
+[3]然后再拷贝系统启动的dtb文
+
+sudo cp ./arch/arm/boot/dts/broadcom/bcm2710-rpi-3-b.dtb mnt/boot/
+
+sudo cp ./arch/arm/boot/dts/broadcom/bcm2837-rpi-3-b.dtb mnt/boot/
+
+
+[4]安装内核模块并配置内核
 
 sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 modules_install
 
@@ -167,22 +175,19 @@ sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 
 
 [2]挂载SD卡分区：sudo mount /dev/sdb4 /mnt
 
-mkdir mnt/fat32
 
-mkdir mnt/ext4
+[3]使用dd命令烧录镜像到SD卡中
 
-[3]然后再拷贝系统启动的dtb文
+sudo dd bs=4M if=2019-04-08-raspbian-stretch-lite.img of=/dev/sdb4
 
-sudo cp arch/arm/boot/dts/broadcom/bcm2710-rpi-3-b.dtb mnt/fat32/
-
-sudo cp arch/arm/boot/dts/broadcom/bcm2837-rpi-3-b.dtb mnt/fat32/overlays/
-
-sudo cp arch/arm/boot/dts/overlays/README mnt/fat32/overlays/
-
-sudo cp ./arch/arm64/boot/Image /mnt/fat32/kernel8.img
+bs代表一次写入多大的块，是blocksize的缩写，4M一般都没问题，如果不行，试试改成1M，if参数为下载的镜像的路径，of后参数为设备地址。
 
 [4]卸载分区
 
-sudo umount mnt/fat32
+sudo umount mnt/
 
-sudo umount mnt/ext4
+sudo umount mnt/boot
+
+[5]插卡启动
+
+最后使用sudo raspi-config 命令配置一些参数
