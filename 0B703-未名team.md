@@ -179,7 +179,7 @@ NTFS file system support：ntfs是NT使用的文件格式。
  
 [1]挂载img镜像文件
 
-![树莓派官方镜像挂载](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-1.png)
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-1.png)
 
 
 sudo fdisk -l 2019-04-08-raspbian-stretch-lite.img
@@ -208,10 +208,10 @@ sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/mnt modu
 
  ###  **7. 烧写到SD卡** ###
  
-[1]使用lsblk命令查看SD卡分区name，我的SD卡在/dev/sdb4
+[1]使用lsblk命令查看SD卡分区name，我的SD卡在/dev/mmcblk0
 
 
-[2]挂载SD卡分区：sudo mount /dev/sdb4 /mnt
+[2]挂载SD卡分区：sudo mount /dev/mmcblk0  /mnt
 
 
 [3]使用dd命令烧录镜像到SD卡中
@@ -220,6 +220,8 @@ sudo dd bs=4M if=2019-04-08-raspbian-stretch-lite.img of=/dev/sdb4
 
 bs代表一次写入多大的块，是blocksize的缩写，4M一般都没问题，如果不行，试试改成1M，if参数为下载的镜像的路径，of后参数为设备地址。
 sudo sync 确保烧写无误。
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-2.png)
+
 
 [4]卸载分区
 
