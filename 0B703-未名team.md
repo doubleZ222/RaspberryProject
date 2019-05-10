@@ -199,7 +199,7 @@ sudo cp ./arch/arm/boot/dts/broadcom/bcm2837-rpi-3-b.dtb mnt/boot/
 
 [4]安装内核模块并配置内核
 
-sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 modules_install
+sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/mnt modules_install
 
 [4]配置新的镜像：sudo echo kernel=kernel8.img >> /mnt/boot/config.txt
 
