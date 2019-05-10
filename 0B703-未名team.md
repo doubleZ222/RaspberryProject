@@ -178,7 +178,8 @@ NTFS file system support：ntfs是NT使用的文件格式。
  ###  **6. 将新内核安装到镜像文件系统中** ###
  
 [1]挂载img镜像文件
-![树莓派官方镜像挂载](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3_1.png)
+
+![树莓派官方镜像挂载](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-1.png)
 
 
 sudo fdisk -l 2019-04-08-raspbian-stretch-lite.img
