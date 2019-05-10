@@ -242,3 +242,5 @@ sudo umount mnt/boot
 [5]插卡启动
 
 最后使用sudo raspi-config 命令配置一些参数
+
+
