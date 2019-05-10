@@ -195,9 +195,9 @@ sudo mount -o loop,offset=4194304,sizelimit=44979712 2019-04-08-raspbian-stretch
 
 [3]然后再拷贝系统启动的dtb文
 
-sudo cp ./arch/arm/boot/dts/broadcom/bcm2710-rpi-3-b.dtb mnt/boot/
+sudo cp ./arch/arm64/boot/dts/broadcom/bcm2710-rpi-3-b.dtb /mnt/boot/
 
-sudo cp ./arch/arm/boot/dts/broadcom/bcm2837-rpi-3-b.dtb mnt/boot/
+sudo cp ./arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b.dtb /mnt/boot/
 
 
 [4]安装内核模块并配置内核
