@@ -239,8 +239,10 @@ sudo umount mnt/
 sudo umount mnt/boot
 
 
-[5]插卡启动
+ ###  **8. 安装后的配置及文件系统** ###
 
-最后使用sudo raspi-config 命令配置一些参数
+[1]查看内核版本及分区情况
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-6.png)
 
 
