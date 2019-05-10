@@ -100,6 +100,8 @@ ARM处理器是英国Acorn有限公司设计的低功耗成本的第一款RISC�
  
  [2] 自己配置内核：同上执行命令：make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig 
  
+ [3] 编译错误清理：sudo make distclean
+ 
  ###  **4. 内核裁剪** ###
  
  **a)	Loadable module support**  
