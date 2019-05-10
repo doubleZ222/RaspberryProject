@@ -152,7 +152,7 @@ Device Drivers即设备驱动，该选项包括内核所支持的各类硬件设
 
 I2C是Philips极力推动的微控制应用中使用的低速串行总线协议
 
-[3]I2C support
+[3]Sound
 
 声卡驱动支持
 
