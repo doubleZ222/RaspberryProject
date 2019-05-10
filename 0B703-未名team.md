@@ -174,6 +174,10 @@ NTFS file system support：ntfs是NT使用的文件格式。
  ###  **5. 构建新内核** ###
 
 完成内核配置后便开始编译，执行命令： make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 其中 j8 代表用多少个CPU核来进行编译。
+
+不裁剪内核大小
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-4.png)
+
  
  ###  **6. 将新内核安装到镜像文件系统中** ###
  
@@ -219,8 +223,13 @@ sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/mnt modu
 sudo dd bs=4M if=2019-04-08-raspbian-stretch-lite.img of=/dev/sdb4
 
 bs代表一次写入多大的块，是blocksize的缩写，4M一般都没问题，如果不行，试试改成1M，if参数为下载的镜像的路径，of后参数为设备地址。
+
 sudo sync 确保烧写无误。
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-2.png)
+
+烧写结束后df -hl 查看sd卡大小：
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-3.png)
+
 
 
 [4]卸载分区
