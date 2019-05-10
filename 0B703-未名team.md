@@ -176,7 +176,12 @@ NTFS file system support：ntfs是NT使用的文件格式。
 完成内核配置后便开始编译，执行命令： make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 其中 j8 代表用多少个CPU核来进行编译。
 
 不裁剪内核大小
+
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-4.png)
+
+
+裁剪内核大小
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-5.png)
 
  
  ###  **6. 将新内核安装到镜像文件系统中** ###
@@ -241,8 +246,12 @@ sudo umount mnt/boot
 
  ###  **8. 安装后的配置及文件系统** ###
 
-[1]查看内核版本及分区情况
+[1]查看内核版本
 
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-6.png)
+
+[1]查看初始分区情况
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-7.png)
 
 
