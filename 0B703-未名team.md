@@ -216,12 +216,14 @@ sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 
 sudo dd bs=4M if=2019-04-08-raspbian-stretch-lite.img of=/dev/sdb4
 
 bs代表一次写入多大的块，是blocksize的缩写，4M一般都没问题，如果不行，试试改成1M，if参数为下载的镜像的路径，of后参数为设备地址。
+sudo sync 确保烧写无误。
 
 [4]卸载分区
 
 sudo umount mnt/
 
 sudo umount mnt/boot
+
 
 [5]插卡启动
 
