@@ -266,11 +266,11 @@ df -h 查看新建情况。
 
 [1]查看内核版本
 
-![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-7.png)
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-8.png)
 
 [2]查看初始分区情况
 
-![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-8.png)
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-7.png)
 
 
 [3]模块卸载
