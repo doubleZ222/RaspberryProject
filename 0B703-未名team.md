@@ -181,6 +181,7 @@ NTFS file system support：ntfs是NT使用的文件格式。
 
 
 裁剪内核大小
+
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-5.png)
 
  
@@ -247,16 +248,11 @@ sudo umount mnt/boot
  ###  **8. 安装后的配置及文件系统** ###
  **a)	   无裁剪的系统**  
 
-[1]查看内核版本
+[1]查看内核版本及初始分区情况
 
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-6.png)
 
-[2]查看初始分区情况
-
-![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-7.png)
-
-
-[3]内存扩充情况
+[2]内存扩充情况
 
 使用sudo fdisk /dev/mmcblk0 新建分区
 p查看已有分区
