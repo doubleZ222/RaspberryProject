@@ -245,13 +245,59 @@ sudo umount mnt/boot
 
 
  ###  **8. 安装后的配置及文件系统** ###
+ **a)	   无裁剪的系统**  
 
 [1]查看内核版本
 
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-6.png)
 
-[1]查看初始分区情况
+[2]查看初始分区情况
 
 ![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-7.png)
+
+
+[3]内存扩充情况
+
+使用sudo fdisk /dev/mmcblk0 新建分区
+p查看已有分区
+n 新建分区，完成后w保存退出，sudo reboot 重启，开机 sudo resize2fs /dev/mmcblk0p3
+df -h 查看新建情况。
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-9.png)
+
+
+ **b)	   裁剪的系统**  
+
+[1]查看内核版本
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-7.png)
+
+[2]查看初始分区情况
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-8.png)
+
+
+[3]模块卸载
+
+卸载i2c_bcm2708并查看安装的模块信息，看是否卸载成功。
+
+sudo modprobe -r i2c_bcm2708
+pi@raspberrypi:~ $ lsmod
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-10.png)
+
+
+[4]模块加载
+
+
+加载i2c_bcm2708并查看安装的模块信息，看是否加载功。
+
+ sudo modprobe i2c-bcm2708 
+pi@raspberrypi:~ $ lsmod
+
+![](https://github.com/doubleZYan/RaspberryProject/blob/master/pictures/3-11.png)
+
+sudo fdisk /dev/mmcblk0
+
 
 
